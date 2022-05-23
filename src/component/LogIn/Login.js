@@ -5,12 +5,13 @@ import auth from '../../firebase.init';
 import googleLogo from '../../images/google.webp';
 import './Login.css';
 import { Form, Spinner } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
     const emailValue = useRef('');
     const navigate = useNavigate();
+    let location = useLocation();
     const [
         signInWithEmailAndPassword,
         user,
@@ -18,8 +19,8 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
-
     const { register, formState: { errors }, handleSubmit } = useForm();
+    let from = location.state?.from?.pathname || "/";
     const onSubmit = data => {
         console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
@@ -36,7 +37,7 @@ const Login = () => {
         allError = <p className='text-danger'>Error: {error?.message} {Gerror?.message} </p>
     }
     if (user || Guser) {
-        navigate('/');
+        navigate(from, { replace: true });
     };
 
 

@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import auth from '../../firebase.init';
 import Modall from './Modall';
 
 const Purchase = () => {
+    const [user] = useAuthState(auth);
     const { purchaseId } = useParams();
     const quantities = useRef('');
     const addresss = useRef('');
@@ -74,12 +77,12 @@ const Purchase = () => {
             <Form onSubmit={submitForm} className='w-50 mx-auto'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label className='text-white fw-bold'>User Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" disabled readOnly  value={user.email} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label className='text-white fw-bold'>User Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Name" />
+                    <Form.Control type="text" disabled readOnly  value={user.displayName}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label className='text-white fw-bold'>Product Name</Form.Label>
@@ -104,7 +107,7 @@ const Purchase = () => {
                     <Form.Control ref={phoneNo} type="text" placeholder="Enter Phone Number" />
                 </Form.Group>
                 <div className="text-center pb-4">
-                    <button style={{ backgroundColor: "#FF3117" }} className='me-2 btn text-white fw-bold' type="submit">
+                    <button  style={{ backgroundColor: "#FF3117" }} className='me-2 btn text-white fw-bold' type="submit">
                         Complete Purchase
                     </button>
                 </div>

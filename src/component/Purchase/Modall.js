@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
+import { Form, Modal } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 import './Modall.css'
 const Modall = () => {
+  const [user] = useAuthState(auth);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -23,7 +26,7 @@ const Modall = () => {
               <Form.Label>User Name</Form.Label>
               <Form.Control
                 type="text"
-                value='Riyad'
+                value={user.displayName}
                 disabled
                 readOnly
                 autoFocus
@@ -37,7 +40,7 @@ const Modall = () => {
               <Form.Label>User Email</Form.Label>
               <Form.Control
                 type="email"
-                value='Riyad@gmail.com'
+                value={user.email}
                 disabled
                 readOnly
                 autoFocus
