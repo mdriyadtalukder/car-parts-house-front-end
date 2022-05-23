@@ -1,0 +1,16 @@
+
+@media only screen and (max-width:688px) {
+
+    #signup-form {
+        width: 100% !important;
+        padding: 10px;
+    }
+
+}
+
+@media only screen and (min-width:688px) and (max-width:992px) {
+    #signup-form {
+        width: 80% !important;
+        padding: 10px;
+    }
+}

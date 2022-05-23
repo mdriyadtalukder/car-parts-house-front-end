@@ -24,6 +24,7 @@ const Header = () => {
                         <Nav.Link as={Link} className="fs-5 fw-bold nav-element text-muted" to="/">Home</Nav.Link>
                         <Nav.Link as={Link} className="fs-5 fw-bold nav-element text-muted" to="/blogs">Blogs</Nav.Link>
                         <Nav.Link as={Link} className="fs-5 fw-bold nav-element text-muted" to="/dashboard">Dashboard</Nav.Link>
+                        <Nav.Link as={Link} className="fs-5 fw-bold nav-element text-muted" to="/login">Log In</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
