@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <Navbar sticky='top' collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand className='text-white fw-bold fs-2 d-flex justify-content-center align-items-center' href="#home">
+                <Navbar.Brand  as={Link}  className='text-white fw-bold fs-2 d-flex justify-content-center align-items-center' to="/">
                     <img
                         alt=""
                         src={icon}
