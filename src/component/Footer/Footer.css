@@ -1,0 +1,23 @@
+.anchor {
+    text-decoration: none;
+    color: white;
+}
+
+.anchor:hover {
+    color: #1CB0E6;
+}
+
+.h,
+.p {
+    margin-bottom: 0 !important;
+    color: white;
+}
+
+.footerr,
+.footer-card-body,
+.footer-card,
+.footer-col,
+.footer-row {
+    background-color: #292929;
+    border: none !important;
+}

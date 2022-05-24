@@ -1,0 +1,12 @@
+.user img {
+    width: 57px;
+    height: 57px;
+    border-radius: 100%;
+}
+
+.start {
+    color: rgb(217, 176, 9);
+}
+#ravatar{
+background-color: rgb(50, 48, 48);
+}
