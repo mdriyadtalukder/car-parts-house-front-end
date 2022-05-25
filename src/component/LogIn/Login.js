@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import { useForm } from "react-hook-form";
-import {  useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import googleLogo from '../../images/google.webp';
 import './Login.css';
 import { Form, Spinner } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../Hook/useToken';
 
 
 const Login = () => {
@@ -19,13 +20,14 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
+    const [token] = useToken(user || Guser)
     const { register, formState: { errors }, handleSubmit } = useForm();
     let from = location.state?.from?.pathname || "/";
     const onSubmit = data => {
         console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
     }
-    if (Gloading || loading) {
+    if (Gloading || loading ) {
         return <div className='d-flex justify-content-center align-items-center mt-5'>
             <Spinner animation="grow" variant="light" />  </div>
 
@@ -33,10 +35,10 @@ const Login = () => {
     let allError;
 
     //errors with conditonal statement
-    if (error || Gerror ) {
+    if (error || Gerror) {
         allError = <p className='text-danger'>Error: {error?.message} {Gerror?.message} </p>
     }
-    if (user || Guser) {
+    if (token || user || Guser) {
         navigate(from, { replace: true });
     };
 

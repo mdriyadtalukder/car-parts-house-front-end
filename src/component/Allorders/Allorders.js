@@ -1,19 +1,18 @@
-import { React, useState, useEffect } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../firebase.init';
-import { Spinner } from 'react-bootstrap';
 import { signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-const Myorders = () => {
-    const [user] = useAuthState(auth);
+import auth from '../../firebase.init';
+
+const Allorders = () => {
     const navigate = useNavigate();
+    const [user] = useAuthState(auth);
     const [products, setProduct] = useState([]);
     const [loading, setloading] = useState(true);
-    const email = user?.email;
-
     useEffect(() => {
         if (user) {
-            fetch(`https://vast-beyond-32749.herokuapp.com/myorder?email=${email}`, {
+            fetch(`https://vast-beyond-32749.herokuapp.com/order`, {
                 method: 'GET',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -64,12 +63,7 @@ const Myorders = () => {
             </div>
             }
         </>
-
-
-
-
-
     );
 };
 
-export default Myorders;
+export default Allorders;

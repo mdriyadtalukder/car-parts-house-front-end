@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useNavigationType } from 'react-router-dom';
 import icon from '../../images/icon.jpg'
 import './Header.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -9,10 +9,14 @@ import { signOut } from 'firebase/auth';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const navigation=useNavigate();
 
     //Log Out
     const logOut = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken');
+        navigation('/login');
+
     }
     return (
         <Navbar sticky='top' collapseOnSelect expand="lg" bg="dark" variant="dark">

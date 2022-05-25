@@ -12,6 +12,9 @@ import SignUp from './component/SignUp/SignUp';
 import RequireAuth from './component/RequireAuth/RequireAuth';
 import Reviews from './component/Reviews/Reviews';
 import Footer from './component/Footer/Footer';
+import Users from './component/Users/Users';
+import RequireAdmin from './component/RequireAuth/RequireAdmin';
+import Allorders from './component/Allorders/Allorders';
 function App() {
   return (
     <div>
@@ -23,14 +26,18 @@ function App() {
         <Route path='/products/:purchaseId' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>
-        <Route path='/dashboard' element={
+        <Route path='dashboard' element={
           <RequireAuth>
             <Dashboard>
             </Dashboard>
           </RequireAuth>}>
 
-          <Route index element={<Myorders></Myorders>}></Route>
+          <Route path='myorders' element={<Myorders></Myorders>}></Route>
           <Route path='review' element={<Reviews></Reviews>}></Route>
+          <Route path='users' element={<RequireAdmin>
+            <Users></Users>
+          </RequireAdmin>}></Route>
+          <Route path='allorders' element={<Allorders></Allorders>}></Route>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>

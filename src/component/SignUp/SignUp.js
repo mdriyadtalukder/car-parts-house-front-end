@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './SignUp.css'
 import googleLogo from '../../images/google.webp'
+import useToken from '../Hook/useToken';
 
 const SignUp = () => {
     const emailInput = useRef('');
@@ -19,6 +20,7 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, error1] = useUpdateProfile(auth);
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
+    const [token]=useToken(user || Guser);
     let errors;
     if (error || error1 || Gerror) {
         errors = <p className='text-danger'>Error: {error?.message} {error1?.message}</p>
@@ -29,7 +31,7 @@ const SignUp = () => {
             <Spinner animation="grow" variant="light" />         </div>
 
     }
-    if (user || Guser) {
+    if (token || user || Guser) {
         navigate('/');
     }
     const signup = async (event) => {
