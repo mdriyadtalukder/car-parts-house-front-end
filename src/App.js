@@ -16,6 +16,7 @@ import Users from './component/Users/Users';
 import RequireAdmin from './component/RequireAuth/RequireAdmin';
 import Allorders from './component/Allorders/Allorders';
 import Allproducts from './component/Allproducts/Allproducts';
+import Addproduct from './component/Addproduct/Addproduct';
 function App() {
   return (
     <div>
@@ -40,11 +41,12 @@ function App() {
           </RequireAdmin>}></Route>
           <Route path='allorders' element={<Allorders></Allorders>}></Route>
           <Route path='allproducts' element={<Allproducts></Allproducts>}></Route>
+          <Route path='addproduct' element={<Addproduct></Addproduct>}></Route>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
       </Routes>
-      <Footer></Footer>
+    
     </div>
   );
 }

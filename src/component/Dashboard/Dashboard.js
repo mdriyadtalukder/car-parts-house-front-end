@@ -21,6 +21,7 @@ const Dashboard = () => {
                         }
                         <Nav class="nav-item mb-2 fs-5 fw-bold  text-muted"><Link to='/dashboard/allorders' class="nav-element nav-link text-secondary">Manage All Orders</Link></Nav>
                         <Nav class="nav-item mb-2 fs-5 fw-bold  text-muted"><Link to='/dashboard/allproducts' class="nav-element nav-link text-secondary">Manage Products</Link></Nav>
+                        <Nav class="nav-item mb-2 fs-5 fw-bold  text-muted"><Link to='/dashboard/addproduct' class="nav-element nav-link text-secondary">Add A Product</Link></Nav>
                     </ul>
                 </div>
 

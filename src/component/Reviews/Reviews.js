@@ -73,7 +73,7 @@ if(rating && description){
                         <Form.Label>Description</Form.Label>
                         <Form.Control ref={descriptionvalue} type="text" placeholder="Enter Description" />
                     </Form.Group>
-                    <button id='btnn' className='btn text-white fw-bold w-100'>Add Item</button>
+                    <button id='btnn' className='btn text-white fw-bold w-100'>Add Reviews</button>
                 </Form>
                 <ToastContainer ></ToastContainer>
             </div>
