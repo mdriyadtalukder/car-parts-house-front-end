@@ -20,6 +20,7 @@ const Dashboard = () => {
                             admin && <Nav class="nav-item mb-2 fs-5 fw-bold  text-muted"><Link to='/dashboard/users' class="nav-element nav-link text-secondary">Make Admin</Link></Nav>
                         }
                         <Nav class="nav-item mb-2 fs-5 fw-bold  text-muted"><Link to='/dashboard/allorders' class="nav-element nav-link text-secondary">Manage All Orders</Link></Nav>
+                        <Nav class="nav-item mb-2 fs-5 fw-bold  text-muted"><Link to='/dashboard/allproducts' class="nav-element nav-link text-secondary">Manage Products</Link></Nav>
                     </ul>
                 </div>
 

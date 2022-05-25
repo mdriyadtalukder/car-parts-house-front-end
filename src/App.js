@@ -15,6 +15,7 @@ import Footer from './component/Footer/Footer';
 import Users from './component/Users/Users';
 import RequireAdmin from './component/RequireAuth/RequireAdmin';
 import Allorders from './component/Allorders/Allorders';
+import Allproducts from './component/Allproducts/Allproducts';
 function App() {
   return (
     <div>
@@ -38,6 +39,7 @@ function App() {
             <Users></Users>
           </RequireAdmin>}></Route>
           <Route path='allorders' element={<Allorders></Allorders>}></Route>
+          <Route path='allproducts' element={<Allproducts></Allproducts>}></Route>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
