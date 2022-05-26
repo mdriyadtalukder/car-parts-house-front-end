@@ -51,6 +51,7 @@ const Allproducts = () => {
                         products?.map(product => <ProAvatar deleteItem={deleteItem} key={product._id} product={product}></ProAvatar>)
                     }
                 </div>
+               
             </div>}
         </>
     );

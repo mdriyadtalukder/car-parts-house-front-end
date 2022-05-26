@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className='card  footer-card h-100'>
                         <div className='card-body footer-card-body pb-5'>
                             <h2 className='h pb-3'>Resources</h2>
-                            <p className='p text-muted'>Gym equipment tips</p>
+                            <p className='p text-muted'>Car Parts House Tips</p>
                             <p className='p text-muted'>Solutions</p>
                             <p className='p text-muted'>​APP</p>
                         </div>
@@ -19,8 +19,8 @@ const Footer = () => {
                     <div className='card h-100 footer-card '>
                         <div className='card-body pb-5 footer-card-body'>
                             <h2 className=' h pb-3'>Address</h2>
-                            <p className=' p fw-bold text-muted'>Gym Equipment House LTD</p>
-                            <p className=' p text-muted'>Mirpur,Dhaka</p>
+                            <p className=' p fw-bold text-muted'>Car Parts House LTD</p>
+                            <p className=' p text-muted'>Uttara,Dhaka</p>
                             <p className=' p text-muted'>Sector-11,Road-4002</p>
                         </div>
                     </div>

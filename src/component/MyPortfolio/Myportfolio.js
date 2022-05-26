@@ -1,8 +1,10 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
 
 const Myportfolio = () => {
     return (
-        <div className='container text-white text-center'>
+      <div>
+            <div className='container text-white text-center'>
             <h1 className='fw-bold text-center mt-3'>My About</h1>
             <div className='d-flex flex-column mb-3 .justify-content-center
 align-items-center'>
@@ -36,12 +38,14 @@ align-items-center'>
 align-items-center'>
 
                 <div className='mt-4'>
-                    <a className='text-decoration-none fs-5 fw-bold' style={{color:'#FF3117'}} href="https://jack-fitness-studio.web.app/">Jack Fitness House</a><br />
-                    <a className='text-decoration-none fs-5 fw-bold' style={{color:'#FF3117'}} href="https://gym-equipment-house.web.app/">Gym Equipment House</a><br />
-                    <a className='text-decoration-none fs-5 fw-bold' style={{color:'#FF3117'}} href="https://to-do-app-bb28c.web.app/">To do web app</a>
+                    <a className='text-decoration-none fs-5 fw-bold' style={{ color: '#FF3117' }} href="https://jack-fitness-studio.web.app/">Jack Fitness House</a><br />
+                    <a className='text-decoration-none fs-5 fw-bold' style={{ color: '#FF3117' }} href="https://gym-equipment-house.web.app/">Gym Equipment House</a><br />
+                    <a className='text-decoration-none fs-5 fw-bold' style={{ color: '#FF3117' }} href="https://to-do-app-bb28c.web.app/">To do web app</a>
                 </div>
             </div>
         </div>
+        <Footer></Footer>
+      </div>
     );
 };
 

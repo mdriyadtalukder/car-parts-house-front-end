@@ -5,6 +5,7 @@ import Banner from './Banner/Banner';
 import Product from './Product/Product';
 import Userreviews from './Userreviews';
 import './Home.css'
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     const [reviews, setReviews] = useState([]);
@@ -29,15 +30,15 @@ const Home = () => {
                 <Spinner animation="grow" variant="light" />         </div> : <div>
                 <Banner></Banner>
                 <section className='container text-white'>
-                   <h1 className='fw-bold text-white text-center mb-5 mt-5'>Car Parts House</h1>
-                   <p className='fs-5'>The Car parts house is changing at a rapid pace. As technology becomes a more intricate part of the driving experience, car part manufacturers and suppliers are changing to keep up with current needs. The industry is fiercely competitive, with approximately 4,000 companies in the Dhaka alone competing for share in a $405-billion-market, which is expected to grow to $448B in 2022.</p>
-                   <p className='fs-5'>The major companies in the Dhaka market today include brick-and-mortar providers such as Advance Car Parts,  and O’Reilly Car Parts, and  automotive aftermarket pure-play retailers, such as CarParts.com and RockAuto that offer easy-to-install replacement parts for used cars and trucks. These sites market, ship, and sell a wide range of auto parts, including transmission and power train components, engines, braking systems, electronics, and more. </p>
-                   <p className='fs-5'>Eventually, the car parts industry will reflect the worldwide, massive expansion of vehicle manufacturing. Together with changes in the post-COVID world and steadily increasing demand and competition, companies must maintain a competitive advantage. </p>
-                   <p className='fs-5'>
-                   Throughout the pandemic, public transportation use has plummeted as people have preferred to use private vehicles, primarily to avoid crowds. This trend is expected to continue in the post-COVID age, as people are nervous to go back to “the way things were.” Crowded busses and trains may become a thing of the past, with more and more people turning to private cars when possible. This trend also helps explain the increased demand for used cars and car parts.
+                    <h1 className='fw-bold text-white text-center mb-5 mt-5'>Car Parts House</h1>
+                    <p className='fs-5'>The Car parts house is changing at a rapid pace. As technology becomes a more intricate part of the driving experience, car part manufacturers and suppliers are changing to keep up with current needs. The industry is fiercely competitive, with approximately 4,000 companies in the Dhaka alone competing for share in a $405-billion-market, which is expected to grow to $448B in 2022.</p>
+                    <p className='fs-5'>The major companies in the Dhaka market today include brick-and-mortar providers such as Advance Car Parts,  and O’Reilly Car Parts, and  automotive aftermarket pure-play retailers, such as CarParts.com and RockAuto that offer easy-to-install replacement parts for used cars and trucks. These sites market, ship, and sell a wide range of auto parts, including transmission and power train components, engines, braking systems, electronics, and more. </p>
+                    <p className='fs-5'>Eventually, the car parts industry will reflect the worldwide, massive expansion of vehicle manufacturing. Together with changes in the post-COVID world and steadily increasing demand and competition, companies must maintain a competitive advantage. </p>
+                    <p className='fs-5'>
+                        Throughout the pandemic, public transportation use has plummeted as people have preferred to use private vehicles, primarily to avoid crowds. This trend is expected to continue in the post-COVID age, as people are nervous to go back to “the way things were.” Crowded busses and trains may become a thing of the past, with more and more people turning to private cars when possible. This trend also helps explain the increased demand for used cars and car parts.
 
 
-                   </p>
+                    </p>
                 </section>
                 <div className="container">
                     <h1 className='fw-bold text-center text-white mt-5 mb-4'>Car Parts Items</h1>
@@ -116,6 +117,7 @@ const Home = () => {
                         }
                     </div>
                 </div>
+                <Footer></Footer>
             </div>}
         </>
     );

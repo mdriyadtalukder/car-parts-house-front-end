@@ -22,7 +22,6 @@ const Myorders = () => {
 
 
                 .then(res => {
-                    console.log('res', res);
                     if (res.status === 401 || res.status === 403) {
                         signOut(auth);
                         localStorage.removeItem('accessToken');
@@ -38,6 +37,24 @@ const Myorders = () => {
                 })
         }
     }, [products]);
+
+    const deleteItems = id => {
+
+        const proceed = window.confirm("Are you sure to delete this order?");
+        if (proceed) {
+            fetch(`https://vast-beyond-32749.herokuapp.com/order/${id}`, {
+                method: 'DELETE',
+            }, [products])
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = products.filter(item => item._id !== id);
+                    setProduct(remaining);
+
+                })
+        }
+
+    }
     return (
         <>
             {loading ? <div className='d-flex justify-content-center align-items-center mt-5'>
@@ -56,9 +73,18 @@ const Myorders = () => {
                         <p className='col '>{item.price}</p>
                         <p className='col '>{item.quantity}</p>
                         <p className='col '>{item.email}</p>
-                        <p className='col '><Link to={`/dashboard/payment/${item._id}`} className='btn btn-dark fw-bold'>Pay</Link>
-                            <button className='btn btn-danger'>Delete</button></p>
+                        <p className='col '>{
+                            (item.price && !item.paid) && <>
+                                <Link to={`/dashboard/payment/${item._id}`} className='btn btn-dark fw-bold'>Pay</Link>
+                                <button onClick={() => deleteItems(item._id)} className='btn btn-danger'>Delete</button>
+                            </>
+                        }
+                            {
+                                (item.price && item.paid) && <p>Transaction ID: {item?.transactionId}</p>
+                            }
+                        </p>
                         <hr />
+
                     </div>)
                 }
             </div>

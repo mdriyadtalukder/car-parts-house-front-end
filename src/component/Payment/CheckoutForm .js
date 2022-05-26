@@ -5,28 +5,36 @@ const CheckoutForm = ({ myorder }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [load, setload] = useState(false);
+    const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
+
 
 
     const price = myorder?.price;
     console.log(price);
+
     useEffect(() => {
-        fetch('https://vast-beyond-32749.herokuapp.com/create-payment-intent', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({ price })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data?.clientSecret) {
-                    setClientSecret(data.clientSecret);
-                    console.log(data)
-                }
-            });
+        if (price) {
+            fetch('https://vast-beyond-32749.herokuapp.com/create-payment-intent', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({ price })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data?.clientSecret) {
+                        setClientSecret(data.clientSecret);
+                        console.log(data)
+                    }
+                });
+        }
 
     }, [price])
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -46,7 +54,50 @@ const CheckoutForm = ({ myorder }) => {
             card
         });
 
-        setCardError(error?.message || '')
+        setCardError(error?.message || '');
+        setSuccess('');
+        setload(true)
+
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: myorder?.name,
+                    },
+                },
+            },
+        );
+        if (intentError) {
+            setCardError(intentError?.message || '');
+            setload(false);
+
+        }
+        else {
+            setCardError('');
+            setTransactionId(paymentIntent.id)
+            console.log(paymentIntent);
+            setSuccess('Congratulation, Your payment is completed!!');
+
+            const transactionId = paymentIntent.id
+
+            fetch(`https://vast-beyond-32749.herokuapp.com/myorder/${myorder?._id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ transactionId }),
+            }, [])
+                .then(res => res.json())
+                .then(data => {
+                    setload(false);
+                    console.log(data);
+                })
+
+
+
+        }
 
     }
     return (
@@ -68,12 +119,18 @@ const CheckoutForm = ({ myorder }) => {
                         },
                     }}
                 />
-                <button type="submit" disabled={!stripe || !clientSecret}>
+                <button id='btnn' className='btn text-white fw-bold' type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
             </form>
             {
                 cardError && <p className='text-danger'>{cardError}</p>
+            }
+            {
+                success && <div className='text-success'>
+                    <p>{success}</p>
+                    <p>Your Transaction Id: <span className='text-info fw-bold'>{transactionId}</span></p>
+                </div>
             }
         </>
     );

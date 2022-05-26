@@ -55,8 +55,14 @@ const Allorders = () => {
                         <p className='col '>{item.price}</p>
                         <p className='col '>{item.quantity}</p>
                         <p className='col '>{item.email}</p>
-                        <p className='col '><button className='btn btn-dark fw-bold'>Shift</button>
-                            <button className='btn btn-danger'>Delete</button></p>
+                        <p className='col '>
+                            {
+                                item.paid && <button className='btn btn-dark fw-bold'>Pending</button>
+                            }
+                            {
+                                !item.paid && <button className='btn btn-dark fw-bold'>Unpaid</button>
+                            }
+                        </p>
                         <hr />
                     </div>)
                 }
