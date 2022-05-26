@@ -19,6 +19,7 @@ import Allproducts from './component/Allproducts/Allproducts';
 import Addproduct from './component/Addproduct/Addproduct';
 import Payment from './component/Payment/Payment';
 import Add from './component/Myprofile/Add';
+import Myportfolio from './component/MyPortfolio/Myportfolio';
 function App() {
   return (
     <div>
@@ -27,6 +28,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/myportfolio' element={<Myportfolio></Myportfolio>}></Route>
         <Route path='/products/:purchaseId' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>

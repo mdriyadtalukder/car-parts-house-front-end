@@ -5,4 +5,10 @@
 .adr{
     padding-left: 30px;
     text-align: center;
- }
+}
+.img-card img{
+    width: 280px;
+    height: 280px;
+    border-radius: 100%;
+    border: 5px solid #FF3117 ;
+}
