@@ -56,7 +56,7 @@ if(rating && description){
         <div>
             <div className='mt-3 mb-3'>
                 <h1 className='text-center fw-bold'>Add New Reviews</h1>
-                <Form id='additemform' onSubmit={addItem} className='w-50 mx-auto shadow-lg p-5 mt-3 mb-3'>
+                <Form id='formm' onSubmit={addItem} className='w-50 mx-auto shadow-lg p-5 mt-3 mb-3'>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>User Name</Form.Label>
                         <Form.Control ref={namevalue} type="text" placeholder="Enter Name" />

@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import './SignUp.css'
 import googleLogo from '../../images/google.webp'
 import useToken from '../Hook/useToken';
+import Footer from '../Footer/Footer';
 
 const SignUp = () => {
     const emailInput = useRef('');
@@ -43,7 +44,8 @@ const SignUp = () => {
         await updateProfile({ displayName: name });
     }
     return (
-        <div id='signup-form' style={{ backgroundColor: 'rgb(50, 48, 48)' }} className='w-25 p-5 shadow-lg mx-auto mt-5 rounded mb-5'>
+        <div>
+            <div id='signup-form' style={{ backgroundColor: 'rgb(50, 48, 48)' }} className='w-25 p-5 shadow-lg mx-auto mt-5 rounded mb-5'>
             <Form onSubmit={signup} >
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label className='text-white fw-bold'>Your name</Form.Label>
@@ -70,6 +72,8 @@ const SignUp = () => {
                 </div>
                 <button className='btn text-center w-100 bg-light fw-bold socialLogin' onClick={() => signInWithGoogle()}> <img width='30px' src={googleLogo} alt="" /> Sign In With Google</button><br />
             </div>
+        </div>
+        <Footer></Footer>
         </div>
     );
 };

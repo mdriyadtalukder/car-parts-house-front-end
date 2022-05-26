@@ -7,6 +7,7 @@ import './Login.css';
 import { Form, Spinner } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../Hook/useToken';
+import Footer from '../Footer/Footer';
 
 
 const Login = () => {
@@ -45,7 +46,7 @@ const Login = () => {
 
     return (
         <div>
-            <div style={{ backgroundColor: 'rgb(50, 48, 48)' }} className='w-25 p-5 shadow-lg mx-auto mt-5 rounded mb-5'>
+            <div id='formm' style={{ backgroundColor: 'rgb(50, 48, 48)' }} className='w-25 p-5 shadow-lg mx-auto mt-5 rounded mb-5'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div >
                         <label for="exampleInputEmail1" class="form-label text-white fw-bold">Enter Email</label>
@@ -98,6 +99,7 @@ const Login = () => {
                     <button className='btn text-center w-100 bg-light fw-bold socialLogin' onClick={() => signInWithGoogle()}> <img width='30px' src={googleLogo} alt="" /> Sign In With Google</button><br />
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
