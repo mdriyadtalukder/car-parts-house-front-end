@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { Spinner } from 'react-bootstrap';
 import { signOut } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Myorders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
@@ -56,7 +56,7 @@ const Myorders = () => {
                         <p className='col '>{item.price}</p>
                         <p className='col '>{item.quantity}</p>
                         <p className='col '>{item.email}</p>
-                        <p className='col '><button className='btn btn-dark fw-bold'>Shift</button>
+                        <p className='col '><Link to={`/dashboard/payment/${item._id}`} className='btn btn-dark fw-bold'>Pay</Link>
                             <button className='btn btn-danger'>Delete</button></p>
                         <hr />
                     </div>)

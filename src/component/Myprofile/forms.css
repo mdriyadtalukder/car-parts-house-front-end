@@ -1,0 +1,16 @@
+@media only screen and (max-width:688px) {
+
+    #formm{
+        width: 100%!important;
+      
+    }
+   
+
+}
+
+@media only screen and (min-width:688px) and (max-width:992px) {
+    #formm{
+        width: 90%!important;
+      
+    }
+}
