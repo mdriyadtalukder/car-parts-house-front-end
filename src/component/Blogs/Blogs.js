@@ -7,7 +7,7 @@ const Blogs = () => {
     return (
         <div>
             <div className='container'>
-                <h1 className='text-center mt-3'>Questions and answers</h1>
+                <h1 className='text-center mt-3 text-white fw-bold'>Questions and answers</h1>
                 <div className='row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 row-cols-1 pt-4 pb-4'>
                     <div className='col mb-4'>
                         <div id='cards' className='card h-100 shadow rouded'>
@@ -57,7 +57,13 @@ const Blogs = () => {
                         <div id='cards' className='card h-100 shadow rouded'>
                             <div className='card-body titles pb-5'>
                                 <h3 className='text-center'>ou have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h3>
-                                <p>This is find method.I will solve this situation by find method.</p>
+                                <p>This is find method.I will solve this situation by find method.The find() method returns the value of the first element that passes a test. The find() method executes a function for each array element. The find() method returns undefined if no elements are found.The find method executes the callbackFn function once for each index of the array until the callbackFn returns a truthy value. If so, find immediately returns the value of that element. Otherwise, find returns undefined.
+
+                                    callbackFn is invoked for every index of the array, not just those with assigned values. This means it may be less efficient for sparse arrays, compared to methods that only visit assigned values.
+
+                                    If a thisArg parameter is provided to find, it will be used as the this value inside each invocation of the callbackFn. If it is not provided, then undefined is used.
+
+                                    The find method does not mutate the array on which it is called, but the function provided to callbackFn can. If so, the elements processed by find are set before the first invocation of callbackFn. Therefore:</p>
                             </div>
                         </div>
                     </div >
