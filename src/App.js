@@ -62,9 +62,7 @@ function App() {
             <Addproduct></Addproduct>
           </RequireAdmin>}></Route>
           <Route path='payment/:id' element={
-            <RequireAdmin>
-              <Payment></Payment>
-            </RequireAdmin>
+            <Payment></Payment>
           }></Route>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
