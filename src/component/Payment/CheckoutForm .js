@@ -17,7 +17,7 @@ const CheckoutForm = ({ myorder }) => {
 
     useEffect(() => {
         if (price) {
-            fetch('https://vast-beyond-32749.herokuapp.com/create-payment-intent', {
+            fetch('https://car-parts-house-back-end.onrender.com/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -82,7 +82,7 @@ const CheckoutForm = ({ myorder }) => {
 
             const transactionId = paymentIntent.id
 
-            fetch(`https://vast-beyond-32749.herokuapp.com/myorder/${myorder?._id}`, {
+            fetch(`https://car-parts-house-back-end.onrender.com/myorder/${myorder?._id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

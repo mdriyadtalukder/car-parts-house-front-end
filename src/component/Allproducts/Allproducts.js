@@ -13,7 +13,7 @@ const Allproducts = () => {
     const [loading, setloading] = useState(true);
     useEffect(() => {
         if (user) {
-            fetch(`https://vast-beyond-32749.herokuapp.com/allproducts`, {
+            fetch(`https://car-parts-house-back-end.onrender.com/allproducts`, {
                 method: 'GET',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -51,7 +51,7 @@ const Allproducts = () => {
                         products?.map(product => <ProAvatar deleteItem={deleteItem} key={product._id} product={product}></ProAvatar>)
                     }
                 </div>
-               
+
             </div>}
         </>
     );

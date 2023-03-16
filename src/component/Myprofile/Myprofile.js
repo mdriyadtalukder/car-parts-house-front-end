@@ -9,7 +9,7 @@ const Myprofile = () => {
     const [product, setProduct] = useState([]);
     const [loading, setloading] = useState(true);
     useEffect(() => {
-        fetch(`https://vast-beyond-32749.herokuapp.com/myprofile/${user?.email}`)
+        fetch(`https://car-parts-house-back-end.onrender.com/myprofile/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);

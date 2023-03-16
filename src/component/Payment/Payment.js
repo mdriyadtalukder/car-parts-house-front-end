@@ -11,7 +11,7 @@ const Payment = () => {
     const [myorder, setProducts] = useState([]);
     useEffect(() => {
 
-        fetch(`https://vast-beyond-32749.herokuapp.com/myorder/${id}`)
+        fetch(`https://car-parts-house-back-end.onrender.com/myorder/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);

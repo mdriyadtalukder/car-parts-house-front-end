@@ -38,7 +38,7 @@ const Addproduct = () => {
 
         //add item with conditional statement
         if (name && img && description && price && minOrderQuantity && availableQuantiti) {
-            fetch('https://vast-beyond-32749.herokuapp.com/products', {
+            fetch('https://car-parts-house-back-end.onrender.com/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

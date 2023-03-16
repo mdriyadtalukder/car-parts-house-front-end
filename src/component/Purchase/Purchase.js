@@ -19,7 +19,7 @@ const Purchase = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
 
-        fetch(`https://vast-beyond-32749.herokuapp.com/products/${purchaseId}`)
+        fetch(`https://car-parts-house-back-end.onrender.com/products/${purchaseId}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -44,7 +44,7 @@ const Purchase = () => {
             address: addresses,
             phoneNumber: phoneNumbers
         }
-        fetch('https://vast-beyond-32749.herokuapp.com/order', {
+        fetch('https://car-parts-house-back-end.onrender.com/order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

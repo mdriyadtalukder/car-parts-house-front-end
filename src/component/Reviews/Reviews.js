@@ -29,27 +29,27 @@ const Reviews = () => {
         }
 
         //add item with conditional statement
-if(rating && description){
-        fetch('https://vast-beyond-32749.herokuapp.com/reviews', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(additems),
-        }, [reload])
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                toast('Review successfully added!!!');
-                event.target.reset();
-                setReload(!reload);
-            })
+        if (rating && description) {
+            fetch('https://car-parts-house-back-end.onrender.com/reviews', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(additems),
+            }, [reload])
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    toast('Review successfully added!!!');
+                    event.target.reset();
+                    setReload(!reload);
+                })
 
+        }
+        else {
+            toast.error('Please fill up the important input field')
+        }
     }
-    else {
-        toast.error('Please fill up the important input field')
-    }
-}
 
 
     return (

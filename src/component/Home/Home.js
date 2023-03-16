@@ -12,7 +12,7 @@ const Home = () => {
     const [loading, setloading] = useState(true);
 
     useEffect(() => {
-        fetch('https://vast-beyond-32749.herokuapp.com/reviews')
+        fetch('https://car-parts-house-back-end.onrender.com/reviews')
             .then(res => res.json())
             .then(data => {
                 setReviews(data);
@@ -20,7 +20,7 @@ const Home = () => {
             })
     }, [reviews]);
 
-    const { data: products, isLoading } = useQuery('product', () => fetch("https://vast-beyond-32749.herokuapp.com/products")
+    const { data: products, isLoading } = useQuery('product', () => fetch("https://car-parts-house-back-end.onrender.com/products")
         .then(res => res.json()));
 
 

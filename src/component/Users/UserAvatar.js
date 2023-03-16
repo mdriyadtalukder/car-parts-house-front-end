@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const UserAvatar = ({ user, refetch }) => {
 
     const makeAdmin = () => {
-        fetch(`https://vast-beyond-32749.herokuapp.com/user/admin/${user?.email}`, {
+        fetch(`https://car-parts-house-back-end.onrender.com/user/admin/${user?.email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

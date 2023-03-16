@@ -13,7 +13,7 @@ const Myorders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://vast-beyond-32749.herokuapp.com/myorder?email=${email}`, {
+            fetch(`https://car-parts-house-back-end.onrender.com/myorder?email=${email}`, {
                 method: 'GET',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -42,7 +42,7 @@ const Myorders = () => {
 
         const proceed = window.confirm("Are you sure to delete this order?");
         if (proceed) {
-            fetch(`https://vast-beyond-32749.herokuapp.com/order/${id}`, {
+            fetch(`https://car-parts-house-back-end.onrender.com/order/${id}`, {
                 method: 'DELETE',
             }, [products])
                 .then(response => response.json())

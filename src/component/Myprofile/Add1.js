@@ -35,7 +35,7 @@ const Add1 = () => {
 
         //add item with conditional statement
         if (educations || locationss || phoneno || linkins)
-            fetch(`https://vast-beyond-32749.herokuapp.com/myprofile/${user?.email}`, {
+            fetch(`https://car-parts-house-back-end.onrender.com/myprofile/${user?.email}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

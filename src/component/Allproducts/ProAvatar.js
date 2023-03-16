@@ -7,7 +7,7 @@ const ProAvatar = ({ product, deleteItem }) => {
 
         const proceed = window.confirm("Are you sure to delete this item?");
         if (proceed) {
-            fetch(`https://vast-beyond-32749.herokuapp.com/allproducts/${id}`, {
+            fetch(`https://car-parts-house-back-end.onrender.com/allproducts/${id}`, {
                 method: 'DELETE',
             })
                 .then(response => response.json())
@@ -28,8 +28,8 @@ const ProAvatar = ({ product, deleteItem }) => {
                     <h6 className='pb-3 text-white'>Price: ${price}</h6>
                     <p className='text-white'><span className='fw-bold text-white'>Description:</span> {description}</p>
                 </div>
-                <button onClick={() => deleteItems(_id)} className='btn btn-danger rounded-pill pt-2 pb-2 ps-4 pe-4'>Delete</button> 
-                
+                <button onClick={() => deleteItems(_id)} className='btn btn-danger rounded-pill pt-2 pb-2 ps-4 pe-4'>Delete</button>
+
             </div>
         </div >
     );

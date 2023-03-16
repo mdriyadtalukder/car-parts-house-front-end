@@ -6,7 +6,7 @@ import UserAvatar from './UserAvatar';
 const Users = () => {
 
 
-    const { data: products, isLoading,refetch } = useQuery('product', () => fetch("https://vast-beyond-32749.herokuapp.com/user", {
+    const { data: products, isLoading, refetch } = useQuery('product', () => fetch("https://car-parts-house-back-end.onrender.com/user", {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -26,11 +26,11 @@ const Users = () => {
                         <th className='col'>Make Admin</th>
                         <hr />
                     </thead>
-                   <tbody>
-                   {
-                        products?.map(user => <UserAvatar refetch={refetch} key={user._id} user={user}></UserAvatar>)
-                    }
-                   </tbody>
+                    <tbody>
+                        {
+                            products?.map(user => <UserAvatar refetch={refetch} key={user._id} user={user}></UserAvatar>)
+                        }
+                    </tbody>
                 </table>}
 
         </>
